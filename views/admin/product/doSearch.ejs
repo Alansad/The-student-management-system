@@ -1,0 +1,103 @@
+<%- include ../public/header.ejs%>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+
+            <a href="/admin/product" class="list-group-item">
+                学生信息首页
+            </a>
+            <a href="/admin/product/add" class="list-group-item">录入学生信息</a>
+            <a href="/admin/product/inputScore" class="list-group-item">
+                录入学生成绩</a>
+
+            <a href="/admin/product/search" class="list-group-item active">查询学生基本信息</a>
+
+            <a href="/admin/product/searchScore" class="list-group-item">
+                查询课程成绩</a>
+            <a href="/admin/product/searchteacher" class="list-group-item">
+                查询某学生的任课老师</a>
+
+
+        </div>
+        <div class="col-sm-10">
+            <ol class="breadcrumb">
+                <li class="active">学生管理
+                </li>
+                <li class="active">学生查询
+                </li>
+            </ol>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    搜索
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline" action="/admin/product/doSearch" method="get" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="number">学号</label>
+                            <input type="text" class="form-control" name="number" id="number" placeholder="请输入学号">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="请输入姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="major">专业</label>
+                            <input type="text" class="form-control" name="major" id="major" placeholder="请输入专业">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">开始搜索</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--
+                列表展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th>数量</th>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>生日</th>
+                        <th>班级</th>
+                        <th>专业</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <% for(var i=0;i<list.length;i++){%>
+                    <tr>
+                        <td><%=i+1%></td>
+                        <td><%=list[i].number%></td>
+                        <td><%=list[i].name%></td>
+                        <td><%=list[i].sex%></td>
+                        <td><%=list[i].date%></td>
+                        <td><%=list[i].class%></td>
+                        <td><%=list[i].major%></td>
+
+                        <td class="text-center">
+
+                            <a href="#" class="btn btn-success">修改</a>
+                            <a href="/admin/product/delete?id=<%=list[i]._id%>" class="btn btn-danger">删除</a>
+
+                        </td>
+                    </tr>
+                    <%}%>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

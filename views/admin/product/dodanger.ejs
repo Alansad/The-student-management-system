@@ -1,0 +1,52 @@
+<<%- include ../public/header.ejs%>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+
+            <%- include ../public/aslideleft.ejs%>
+
+        </div>
+        <div class="col-sm-10">
+            <ol class="breadcrumb">
+                <li class="active"><h1>已经gg和快gg的学生</h1>
+                </li>
+            </ol>
+
+            <!--
+                列表展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th>数量</th>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>挂掉学分</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <% for(var i=0;i<list.length;i++){%>
+                    <tr>
+                        <td><%=i+1%></td>
+                        <td><%=list[i].number%></td>
+                        <td><%=list[i].name%></td>
+                        <td><%=list[i].lost%></td>
+                    </tr>
+                    <%}%>
+
+                    </tbody>
+
+
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

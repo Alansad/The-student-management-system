@@ -1,0 +1,71 @@
+<%- include ../public/header.ejs%>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+
+            <a href="/admin/product" class="list-group-item active">
+                学生信息首页
+            </a>
+            <a href="/admin/product/add" class="list-group-item">录入学生信息</a>
+            <a href="/admin/product/inputScore" class="list-group-item">
+                录入学生成绩</a>
+
+            <a href="/admin/product/search" class="list-group-item">查询学生基本信息</a>
+
+            <a href="/admin/product/searchScore" class="list-group-item">
+                查询课程成绩</a>
+            <a href="/admin/product/searchteacher" class="list-group-item">
+                查询某学生的任课老师</a>
+
+
+        </div>
+        <div class="col-sm-10">
+            <ol class="breadcrumb">
+                <li class="active"><h1>学生总表</h1>
+                </li>
+            </ol>
+
+            <!--
+                列表展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th>数量</th>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>出生日期</th>
+                        <th>班级</th>
+                        <th>专业</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <% for(var i=0;i<list.length;i++){%>
+                    <tr>
+                        <td><%=i+1%></td>
+                        <td><%=list[i].number%></td>
+                        <td><%=list[i].name%></td>
+                        <td><%=list[i].sex%></td>
+                        <td><%=list[i].date%></td>
+                        <td><%=list[i].class%></td>
+                        <td><%=list[i].major%></td>
+                    </tr>
+                    <%}%>
+
+                    </tbody>
+
+
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
